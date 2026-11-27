@@ -4,7 +4,9 @@ import { campaign } from '../data/campaign';
 const { title = campaign.title + ' | ' + campaign.community } = Astro.props;
 const description = 'Una iniciativa de solidaridad para acompañar a las familias afectadas en Pastaza, Ecuador.';
 const live = import.meta.env.PUBLIC_CAMPAIGN_LIVE === 'true';
-const origin = import.meta.env.PUBLIC_SITE_URL;
+const origin = import.meta.env.PUBLIC_SITE_URL || (import.meta.env.VERCEL_URL ? 'https://' + import.meta.env.VERCEL_URL : Astro.url.origin);
+const shareImage = new URL('/images/portada.webp', origin).href;
+const whatsapp = import.meta.env.PUBLIC_CONTACT_WHATSAPP?.replace(/\D/g, '') || '593962803506';
 const canonical = origin ? new URL(Astro.url.pathname, origin).href : undefined;
 ---
 <!doctype html>
@@ -20,6 +22,10 @@ const canonical = origin ? new URL(Astro.url.pathname, origin).href : undefined;
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:image" content={shareImage} />
+    <meta property="og:image:alt" content="Ilustración conmemorativa de Unidos por la Esperanza" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={shareImage} />
     {canonical && <meta property="og:url" content={canonical} />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,6 +36,7 @@ const canonical = origin ? new URL(Astro.url.pathname, origin).href : undefined;
     <a href="#contenido" class="skip">Saltar al contenido</a>
     {!live && <div class="preview">Vista de desarrollo · Información y aportes pendientes de verificación</div>}
     <slot />
+    <a class="floating-contact" href={`https://wa.me/${whatsapp}?text=${encodeURIComponent("Hola, quisiera colaborar con Unidos por la Esperanza.")}`} target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp"><svg viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-12 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z"/><path d="M9 8c-2 2 3 7 5 6l1-1"/></svg><span>WhatsApp</span></a>
     <script>
       import '../scripts/interactions';
     </script>

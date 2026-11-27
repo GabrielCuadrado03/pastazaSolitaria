@@ -31,10 +31,12 @@ export const families: FamilyCase[] = [
   { id: 'mathias-fuentes', image: '/images/mathias.webp', name: 'Mathias Fuentes', age: 12, description: 'Cada gesto de solidaridad puede ayudar a Mathias y su familia.', approved: true, bank: { institution: 'CACPE Pastaza', accountType: 'Ahorros', holder: 'Solange Ortega', number: '170501075761' } },
 ];
 
-export const events = [
-  { title: 'Rifa solidaria', status: 'Viernes 27 de noviembre de 2026 · $1', description: 'Rifa de la Unidad Educativa Esperanza Eterna para apoyar a las familias afectadas. Muchos premios. Consulta con los organizadores cómo participar.' },
-  // Bingo solidario: reactivar cuando se confirmen fecha, lugar, hora y valor.
-  // { title: 'Bingo solidario', status: 'Próximamente', description: 'Fecha, lugar, hora y valor pendientes de confirmación.' },
+export interface SolidarityEvent { title: string; organizer: string; status: string; description: string; image: string; location: string; contactUrl?: string; contactLabel?: string }
+export const events: SolidarityEvent[] = [
+  { title: 'Café con corazón', organizer: 'Amazon Coffee · Unidos por Puyo', status: 'Viernes 27 de noviembre', description: 'El 30% de las ventas del día se destinará a apoyar a los niños y familias afectadas. También habrá una alcancía solidaria en caja.', image: '/images/amazon_coffee_event.webp', location: 'Plaza Álvaro Valladares, Puyo', contactUrl: 'https://www.instagram.com/amazon_coffe/', contactLabel: 'Instagram · @amazon_coffe' },
+  { title: 'Rifa solidaria', organizer: 'Consejo Estudiantil · Esperanza Eterna', status: 'Viernes 27 de noviembre · $1', description: 'Rifa a beneficio de las familias afectadas, con varios premios. Venta de boletos desde las 4:00 p.m.', image: '/images/rifa_solidaria_event.webp', location: 'Amazon Coffee, Puyo', contactUrl: 'https://wa.me/593963430421', contactLabel: 'Consultar por WhatsApp' },
+  { title: 'Gran venta solidaria', organizer: 'Consejo Estudiantil · Magic School', status: 'Lunes · 12:00 m. a 2:00 p.m.', description: 'Venta de helados, gelatinas, ensaladas de frutas, cupcakes, canguil y burbujas de jabón para recaudar fondos para los niños afectados.', image: '/images/magic_school_event.webp', location: 'Magic School' },
+  // Bingo solidario: incorporar cuando se confirmen sus detalles.
 ];
 
 export const sources = [

@@ -8,7 +8,14 @@ document.addEventListener('click', async (event) => {
   if (!(target instanceof Element)) return;
   const button = target.closest<HTMLButtonElement>('button');
   if (!button) return;
-  if (button.dataset.dialog) {
+  if (button.hasAttribute('data-campaign-whatsapp')) {
+    const url = new URL(location.href); url.hash = ''; url.search = '';
+    location.href = 'https://wa.me/?text=' + encodeURIComponent('❤️ Unidos por la Esperanza · Pastaza Solidaria\nPequeños gestos, grandes esperanzas. Conoce cómo ayudar a las familias afectadas y comparte esta iniciativa.\n' + url.href);
+  } else if (button.hasAttribute('data-copy-link')) {
+    const url = new URL(location.href); url.hash = ''; url.search = '';
+    try { await navigator.clipboard.writeText(url.href); feedback(button, 'Enlace copiado.'); }
+    catch { feedback(button, 'Copia el enlace desde la barra de direcciones.'); }
+  } else if (button.dataset.dialog) {
     const dialog = document.getElementById(button.dataset.dialog);
     if (dialog instanceof HTMLDialogElement) dialog.showModal();
   } else if (button.hasAttribute('data-close')) {
