@@ -33,7 +33,8 @@ export const families: FamilyCase[] = [
 
 export const events = [
   { title: 'Rifa solidaria', status: 'Información por confirmar', description: 'Consulta con los organizadores la vigencia de la actividad, el horario y la forma de participación.' },
-  { title: 'Bingo solidario', status: 'Próximamente', description: 'Fecha, lugar, hora y valor pendientes de confirmación.' },
+  // Bingo solidario: reactivar cuando se confirmen fecha, lugar, hora y valor.
+  // { title: 'Bingo solidario', status: 'Próximamente', description: 'Fecha, lugar, hora y valor pendientes de confirmación.' },
 ];
 
 export const sources = [
