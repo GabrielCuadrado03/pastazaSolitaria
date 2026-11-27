@@ -1,0 +1,11 @@
+---
+import { events } from '../data/campaign';
+---
+<section class="section events" id="eventos">
+  <div class="wrap">
+    <div class="section-heading"><p class="eyebrow">Una comunidad que se une</p><h2>Eventos solidarios.</h2><p>Otras oportunidades para acompañar a las familias.</p></div>
+    <div class="events-grid">
+      {events.map((event, i) => <article class="event-card"><span class="event-number" aria-hidden="true">{String(i+1).padStart(2,'0')}</span><div><p class="eyebrow">{event.status}</p><h3>{event.title}</h3><p>{event.description}</p></div></article>)}
+    </div>
+  </div>
+</section>

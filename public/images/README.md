@@ -1,0 +1,1 @@
+Colocar aquí únicamente fotografías e ilustraciones autorizadas para su publicación. Usar WebP, dimensiones adecuadas y eliminar metadatos innecesarios. No subir los afiches originales con información bancaria.

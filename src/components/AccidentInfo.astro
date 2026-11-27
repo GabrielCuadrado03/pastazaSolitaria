@@ -1,0 +1,18 @@
+---
+import { campaign } from '../data/campaign';
+---
+<section class="section wrap story" id="historia">
+  <div>
+    <p class="eyebrow">{campaign.date} · Pastaza</p>
+    <h2>Una mañana que cambió muchas vidas.</h2>
+    <p>Tras el accidente escolar en Pastaza, esta iniciativa busca acercar la solidaridad a los niños afectados y sus familias.</p>
+    <p>Queremos acompañar a nuestra comunidad con respeto, empatía y responsabilidad.</p>
+  </div>
+  <div>
+    <div class="stats">
+      <div class="stat"><strong>{campaign.injured}</strong><span>Niños heridos</span></div>
+      <div class="stat memorial-stat"><strong>{campaign.deceased}</strong><span>Niño fallecido</span></div>
+    </div>
+    {!campaign.figuresVerified && <p class="fine-print">Cifras proporcionadas para la iniciativa, pendientes de confirmación definitiva.</p>}
+  </div>
+</section>

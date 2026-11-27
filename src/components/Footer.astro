@@ -1,0 +1,10 @@
+---
+import { campaign, sources } from '../data/campaign';
+---
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div><a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true">♡</span><span>{campaign.title}<small>{campaign.community}</small></span></a><p>{campaign.subtitle}</p></div>
+    <div><h3>Sobre la iniciativa</h3><p>Iniciativa informativa de ayuda directa. No recibe fondos ni implica administración por parte de la institución educativa. Contacto responsable pendiente.</p></div>
+    <div><h3>Fuentes por verificar</h3><ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.name} ↗</a></li>)}</ul></div>
+  </div>
+</footer>

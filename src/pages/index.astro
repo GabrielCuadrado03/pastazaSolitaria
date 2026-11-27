@@ -1,0 +1,28 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import AccidentInfo from '../components/AccidentInfo.astro';
+import Memorial from '../components/Memorial.astro';
+import ChildCard from '../components/ChildCard.astro';
+import SolidarityEvents from '../components/SolidarityEvents.astro';
+import ShareSection from '../components/ShareSection.astro';
+import Footer from '../components/Footer.astro';
+import { families } from '../data/campaign';
+---
+<MainLayout>
+  <Header />
+  <main id="contenido">
+    <Hero />
+    <AccidentInfo />
+    <Memorial />
+    <section class="section wrap" id="ninos">
+      <div class="section-heading"><p class="eyebrow">Nuestros corazones están con ellos</p><h2>Tres historias. Una misma esperanza.</h2><p>Conoce las iniciativas de apoyo a las familias. Cada aporte puede hacer la diferencia.</p></div>
+      <div class="family-grid">{families.map(family => <ChildCard family={family} />)}</div>
+      <p class="fine-print centered">Las tarjetas son una vista de desarrollo. Los aportes se realizarán directamente a las familias cuando los datos estén confirmados.</p>
+    </section>
+    <SolidarityEvents />
+    <ShareSection />
+  </main>
+  <Footer />
+</MainLayout>
