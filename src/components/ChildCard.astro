@@ -5,6 +5,21 @@ const { family } = Astro.props;
 const ready = family.approved && Boolean(family.bank);
 const title = family.approved ? family.name : 'Familia ' + family.id.replace('familia-', '').padStart(2, '0');
 const dialogId = 'donacion-' + family.id;
+const donationText = ready && family.bank ? [
+  '❤️ Unidos por la Esperanza · Pastaza Solidaria',
+  '',
+  'Ayudemos a ' + family.name + (family.age ? ', de ' + family.age + ' años' : '') + '.',
+  family.description,
+  '',
+  'Datos para ayudar directamente:',
+  'Entidad: ' + family.bank.institution,
+  'Tipo de cuenta: ' + family.bank.accountType,
+  'Número de cuenta: ' + family.bank.number,
+  'Titular: ' + family.bank.holder,
+  '',
+  'Cada aporte cuenta. Gracias por tu solidaridad.',
+].join('\n') : '';
+const shareUrl = 'https://wa.me/?text=' + encodeURIComponent(donationText);
 ---
 <article class="family-card" id={family.id}>
   <div class="portrait">
@@ -15,7 +30,11 @@ const dialogId = 'donacion-' + family.id;
     <h3>{title}</h3>
     <p>{family.approved ? family.description : 'Acompañemos a esta familia con solidaridad y respeto.'}</p>
     <button class="button" type="button" data-dialog={dialogId}>{ready ? 'Ver datos para ayudar' : 'Información de apoyo'}</button>
-    {ready && <button class="text-button" type="button" data-share={family.id}>Compartir su historia</button>}
+    {ready && family.bank && <div class="family-actions">
+      <a class="text-button whatsapp-share" href={shareUrl} target="_blank" rel="noopener noreferrer">Compartir por WhatsApp</a>
+      <button class="text-button" type="button" data-copy={family.bank.number}>Copiar número de cuenta</button>
+      <p class="feedback" role="status" aria-live="polite"></p>
+    </div>}
   </div>
   <dialog id={dialogId} aria-labelledby={dialogId + '-title'}>
     <div class="dialog-content">
@@ -25,6 +44,8 @@ const dialogId = 'donacion-' + family.id;
       {ready && family.bank ? <div class="bank-details">
         <dl><dt>Entidad</dt><dd>{family.bank.institution}</dd><dt>Tipo de cuenta</dt><dd>{family.bank.accountType}</dd><dt>Titular</dt><dd>{family.bank.holder}</dd><dt>Número de cuenta</dt><dd class="account-number">{family.bank.number}</dd></dl>
         <button type="button" class="button" data-copy={family.bank.number}>Copiar número de cuenta</button>
+        <button type="button" class="button copy-all" data-copy={donationText} data-copy-feedback="Información de ayuda copiada.">Copiar toda la información</button>
+        <a class="button whatsapp-share" href={shareUrl} target="_blank" rel="noopener noreferrer">Compartir por WhatsApp</a>
         <p>Confirma los datos con la familia antes de transferir. Esta página no procesa pagos.</p>
       </div> : <p>Los datos de ayuda estarán disponibles únicamente después de confirmar la autorización de la familia y la información bancaria. Por ahora no se solicitan transferencias.</p>}
       <p class="feedback" aria-live="polite" role="status"></p>

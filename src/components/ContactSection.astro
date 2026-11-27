@@ -1,5 +1,5 @@
 ---
-const whatsapp = import.meta.env.PUBLIC_CONTACT_WHATSAPP?.replace(/\D/g, '') ?? '';
+const whatsapp = import.meta.env.PUBLIC_CONTACT_WHATSAPP?.replace(/\D/g, '') ?? '593962803506';
 const message = encodeURIComponent('Hola, quisiera colaborar con Unidos por la Esperanza.');
 ---
 <section class="section wrap" id="contacto">
@@ -7,7 +7,7 @@ const message = encodeURIComponent('Hola, quisiera colaborar con Unidos por la E
     <p class="eyebrow">Pastaza Solidaria</p>
     <h2>Hay muchas formas de ayudar.</h2>
     <p>Si representas a una empresa, fundación, institución o deseas contribuir con recursos, servicios o iniciativas solidarias, queremos escucharte.</p>
-    {whatsapp ? <a class="contact-button" href={`https://wa.me/${whatsapp}?text=${message}`} target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a> : <p class="contact-pending">Canal de contacto próximamente disponible.</p>}
+    {whatsapp ? <a class="contact-button" href={`https://wa.me/${whatsapp}?text=${message}`} target="_blank" rel="noopener noreferrer">Contactar por WhatsApp · +593 96 280 3506</a> : <p class="contact-pending">Canal de contacto próximamente disponible.</p>}
   </div>
 </section>
 <style>

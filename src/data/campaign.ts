@@ -26,7 +26,7 @@ export const campaign = {
 };
 
 export const families: FamilyCase[] = [
-  { id: 'genesis-reyes', image: '/images/genesis.webp', name: 'Génesis Reyes', description: 'Acompañemos a Génesis y su familia durante su recuperación.', approved: true, bank: { institution: 'Banco Pichincha', accountType: 'Ahorros', holder: 'Cristina Gracia Zurita', number: '2205375618' } },
+  { id: 'genesis-reyes', image: '/images/genesis.webp', name: 'Génesis Reyes', age: 14, description: 'Tras el accidente del transporte escolar, Génesis necesita apoyo para su tratamiento quirúrgico y recuperación.', approved: true, bank: { institution: 'Banco Pichincha', accountType: 'Ahorros', holder: 'Cristina Gracia Zurita', number: '2205375618' } },
   { id: 'alan-illanes', image: '/images/alan.webp', name: 'Alan Illanes', age: 7, description: 'Unamos nuestros corazones para apoyar a Alan y su familia.', approved: true, bank: { institution: 'Banco Pichincha', accountType: 'Transaccional', holder: 'Norma Rojas', number: '2212759572' } },
   { id: 'mathias-fuentes', image: '/images/mathias.webp', name: 'Mathias Fuentes', age: 12, description: 'Cada gesto de solidaridad puede ayudar a Mathias y su familia.', approved: true, bank: { institution: 'CACPE Pastaza', accountType: 'Ahorros', holder: 'Solange Ortega', number: '170501075761' } },
 ];

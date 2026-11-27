@@ -1,5 +1,5 @@
 function feedback(button: HTMLElement, message: string) {
-  const region = button.closest('dialog, section, article')?.querySelector<HTMLElement>('.feedback');
+  const region = button.closest('dialog, article, section')?.querySelector<HTMLElement>('.feedback');
   if (region) region.textContent = message;
 }
 
@@ -16,7 +16,7 @@ document.addEventListener('click', async (event) => {
   } else if (button.dataset.copy) {
     try {
       await navigator.clipboard.writeText(button.dataset.copy);
-      feedback(button, 'Número de cuenta copiado.');
+      feedback(button, button.dataset.copyFeedback || 'Número de cuenta copiado.');
     } catch {
       feedback(button, 'No se pudo copiar automáticamente. Selecciona el número y cópialo manualmente.');
     }
