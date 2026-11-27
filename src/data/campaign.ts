@@ -26,13 +26,13 @@ export const campaign = {
 };
 
 export const families: FamilyCase[] = [
-  { id: 'familia-1', name: 'Familia 01', description: 'Acompañemos a esta familia con solidaridad y respeto.', approved: false },
-  { id: 'familia-2', name: 'Familia 02', description: 'Cada gesto de apoyo puede hacer la diferencia.', approved: false },
-  { id: 'familia-3', name: 'Familia 03', description: 'Unamos nuestros corazones para apoyar su recuperación.', approved: false },
+  { id: 'genesis-reyes', name: 'Génesis Reyes', description: 'Acompañemos a Génesis y su familia durante su recuperación.', approved: true, bank: { institution: 'Banco Pichincha', accountType: 'Ahorros', holder: 'Cristina Gracia Zurita', number: '2205375618' } },
+  { id: 'alan-illanes', name: 'Alan Illanes', age: 7, description: 'Unamos nuestros corazones para apoyar a Alan y su familia.', approved: true, bank: { institution: 'Banco Pichincha', accountType: 'Transaccional', holder: 'Norma Rojas', number: '2212759572' } },
+  { id: 'mathias-fuentes', name: 'Mathias Fuentes', age: 12, description: 'Cada gesto de solidaridad puede ayudar a Mathias y su familia.', approved: true, bank: { institution: 'CACPE Pastaza', accountType: 'Ahorros', holder: 'Solange Ortega', number: '170501075761' } },
 ];
 
 export const events = [
-  { title: 'Rifa solidaria', status: 'Información por confirmar', description: 'Consulta con los organizadores la vigencia de la actividad, el horario y la forma de participación.' },
+  { title: 'Rifa solidaria', status: 'Viernes 27 de noviembre de 2026 · $1', description: 'Rifa de la Unidad Educativa Esperanza Eterna para apoyar a las familias afectadas. Muchos premios. Consulta con los organizadores cómo participar.' },
   // Bingo solidario: reactivar cuando se confirmen fecha, lugar, hora y valor.
   // { title: 'Bingo solidario', status: 'Próximamente', description: 'Fecha, lugar, hora y valor pendientes de confirmación.' },
 ];

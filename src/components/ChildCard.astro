@@ -8,7 +8,7 @@ const dialogId = 'donacion-' + family.id;
 ---
 <article class="family-card" id={family.id}>
   <div class="portrait">
-    {family.approved && family.image ? <img src={family.image} alt={'Retrato autorizado de ' + title} width="640" height="640" loading="lazy" decoding="async" /> : <div class="portrait-placeholder"><span aria-hidden="true">♡</span><small>Retrato pendiente de autorización</small></div>}
+    {family.approved && family.image ? <img src={family.image} alt={'Retrato autorizado de ' + title} width="640" height="640" loading="lazy" decoding="async" /> : <div class="portrait-placeholder"><span aria-hidden="true">♡</span><small>Fotografía próximamente</small></div>}
   </div>
   <div class="family-body">
     <p class="eyebrow">{family.approved && family.age ? family.age + ' años' : 'Apoyo familiar'}</p>
