@@ -5,6 +5,7 @@ import Hero from '../components/Hero.astro';
 import AccidentInfo from '../components/AccidentInfo.astro';
 import Memorial from '../components/Memorial.astro';
 import ChildCard from '../components/ChildCard.astro';
+import BloodDonation from '../components/BloodDonation.astro';
 import SolidarityEvents from '../components/SolidarityEvents.astro';
 import ShareSection from '../components/ShareSection.astro';
 import ContactSection from '../components/ContactSection.astro';
@@ -22,6 +23,7 @@ import { families } from '../data/campaign';
       <div class="family-grid">{families.map(family => <ChildCard family={family} />)}</div>
       <p class="fine-print centered">Los aportes se realizan directamente a las familias. Esta página no recibe ni procesa dinero.</p>
     </section>
+    <BloodDonation />
     <SolidarityEvents />
     <ContactSection />
     <ShareSection />

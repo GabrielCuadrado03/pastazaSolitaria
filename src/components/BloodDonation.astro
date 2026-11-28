@@ -1,0 +1,31 @@
+---
+const message = 'Solicitud de donación de sangre O+ para Génesis Reyes. Quito: Hospital Baca Ortiz. Puyo: Cruz Roja Ecuatoriana. Confirma la vigencia y el procedimiento con el centro de donación. https://pastaza-solidaria.vercel.app/#donacion-sangre';
+const posters = import.meta.glob('/public/images/donacion_sangre_genesis.webp');
+const hasPoster = Object.keys(posters).length > 0;
+---
+<section class="section wrap" id="donacion-sangre">
+  <article class="blood-alert">
+    <div>
+      <p class="eyebrow">Solicitud solidaria · 28 de noviembre</p>
+      <h2>Donación de sangre urgente</h2>
+      <p>Según el llamado solidario recibido, se necesitan donantes para Génesis Reyes.</p>
+      <p class="blood-type">O+ <span>Positivo</span></p>
+      <h3>¿Dónde puedes donar?</h3>
+      <p><strong>Quito:</strong> Hospital Baca Ortiz.</p>
+      <p><strong>Puyo:</strong> Cruz Roja Ecuatoriana.</p>
+      <p>Indica que deseas donar a nombre de Génesis Reyes. Conserva una foto del comprobante y compártela de forma privada con la familia.</p>
+      <p class="fine-print">Confirma con el centro de donación la vigencia de la solicitud, los requisitos y el procedimiento antes de acudir.</p>
+      <a class="button" href={'https://wa.me/?text=' + encodeURIComponent(message)} target="_blank" rel="noopener noreferrer">Compartir alerta por WhatsApp</a>
+    </div>
+    {hasPoster && <a href="/images/donacion_sangre_genesis.webp" target="_blank" rel="noopener noreferrer"><img src="/images/donacion_sangre_genesis.webp" alt="Afiche de solicitud de donación de sangre O positivo para Génesis Reyes" loading="lazy" /></a>}
+  </article>
+</section>
+<style>
+.blood-alert{display:grid;grid-template-columns:1fr;gap:1.5rem;background:#fff5f5;border:2px solid #b42335;border-radius:1.25rem;padding:clamp(1rem,4vw,2rem);color:#241b3b}
+.blood-alert h2,.blood-alert .eyebrow{color:#a51e30}
+.blood-type{font-size:3rem;font-weight:800;color:#a51e30;line-height:1.2;margin:1rem 0}
+.blood-type span{font-size:1rem;font-weight:600}
+.blood-alert img{width:100%;max-height:650px;object-fit:contain;border-radius:.75rem}
+.blood-alert .button{display:inline-flex;margin-top:1rem}
+@media(min-width:800px){.blood-alert:has(img){grid-template-columns:1fr 1fr;align-items:center}}
+</style>
